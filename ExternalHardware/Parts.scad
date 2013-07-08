@@ -170,6 +170,7 @@ module MPPC(){
 S12643_050CN();
 }
 
+
 module DETECTOR_MODULE(crystal=true,mppc=true){
 CRYSTAL_POS=[0,0,1.65];
 if(crystal){
@@ -181,9 +182,14 @@ MPPC();
 }
 }
 
-module DETECTORS_PLUS_ASIC(asics=true,crystal=true,mppc=true){
+module ASIC_MODULE(){
+//ASIC_MODULE_001();
+ASIC_MODULE_002();
+}
 
-ASIC_MODULE_PCB_DIM=[29.,29.,3];
+module DETECTORS_PLUS_ASIC(asics=true,crystal=true,mppc=true){
+//ASIC_MODULE_PCB_DIM=[29.,29.,3];
+ASIC_MODULE_PCB_DIM=[29.,29.,18];
 ASIC_MODULE_MPPC_CONNECTOR_DIM=[9.58,3.7,3.1];
 ASIC_MODULE_MPPC_CONNECTOR_CENT=[-.10,-0.10,-3.5];
 ASIC_MODULE_MPPC_CONNECTOR_POSS=[
@@ -208,10 +214,6 @@ DETECTOR_MODULE(crystal,mppc);
 //color(_COLOR,alpha=_ALPHA)
 //cube(size = _DIM,center=false);
 
-module ASIC_MODULE(){
-ASIC_MODULE_001();
-//ASIC_MODULE_002();
-}
 
 module ASIC_MODULE_001(){
 ASIC_MODULE_001_PCB_DIM=[29.,29.,2];
