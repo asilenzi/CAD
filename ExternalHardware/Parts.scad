@@ -16,9 +16,9 @@ translate([-30,-30,0])one_euro();
 //spacer();
 //DETECTORS_PLUS_ASIC();
 //electronics_assembly(mechanics=true,asics=false,crystal=false,mppc=false);
-electronics_assembly();
+//electronics_assembly();
 //electronics_assembly_singleFEB(mechanics=true,asics=true,crystal=true,mppc=true);
-
+//BIGFRAME();
 module one_euro(){
 one_euro_inner_dia=16;
 one_euro_outer_dia=23.25;
