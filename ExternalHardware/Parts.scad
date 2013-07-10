@@ -15,9 +15,11 @@ translate([-30,-30,0])one_euro();
 //ASIC_MODULE();
 //spacer();
 //DETECTORS_PLUS_ASIC();
-//electronics_assembly(mechanics=true,asics=false,crystal=false,mppc=false);
-electronics_assembly();
-//electronics_assembly_singleFEB(mechanics=true,asics=false,crystal=false,mppc=false);
+electronics_assembly(mechanics=true,asics=false,crystal=false,mppc=false);
+//electronics_assembly();
+//electronics_assembly_singleFEB(mechanics=true,asics=true,crystal=true,mppc=true);
+//BIGFRAME();
+
 
 module one_euro(){
 one_euro_inner_dia=16;
@@ -359,7 +361,7 @@ ASIC_MODULE_002_PCB1_DIM=[29.,29.,2];
 ASIC_MODULE_002_PCB1_POS=[0,0,ASIC_MODULE_002_PCB2_DZ];
 ASIC_MODULE_002_PCB1_ALPHA=1.;
 ASIC_MODULE_002_PCB1_COLOR="LimeGreen";
-ASIC_MODULE_002_PCB1_DENTX=0.2;
+ASIC_MODULE_002_PCB1_DENTX=0.18;
 ASIC_MODULE_002_PCB1_DENTY=0.05;
 ASIC_MODULE_002_PCB1_POINTS=[[0,0],
 	[ASIC_MODULE_002_PCB1_DENTX*ASIC_MODULE_002_PCB1_DIM[0],0],
