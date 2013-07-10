@@ -17,7 +17,7 @@ translate([-30,-30,0])one_euro();
 //DETECTORS_PLUS_ASIC();
 //electronics_assembly(mechanics=true,asics=false,crystal=false,mppc=false);
 electronics_assembly();
-//electronics_assembly_singleFEB(mechanics=true,asics=true,crystal=true,mppc=true);
+//electronics_assembly_singleFEB(mechanics=true,asics=false,crystal=false,mppc=false);
 
 module one_euro(){
 one_euro_inner_dia=16;
@@ -31,7 +31,7 @@ color("White")cylinder(r=one_euro_inner_dia/2,h=one_euro_H,center=true);
 }
 
 module electronics_assembly(mechanics=true,asics=true,crystal=true,mppc=true){
-electronics_assembly_FEB_POS=[0,0,20];
+electronics_assembly_FEB_POS=[0,0,0];
 electronics_assembly_FEB_PITCH=[0,62,0];
 for ( i = [0 : 3] )
     translate([0,i*electronics_assembly_FEB_PITCH[1],0]+electronics_assembly_FEB_POS)
@@ -41,9 +41,9 @@ BIGFRAME();
 }
 
 module electronics_assembly_singleFEB(mechanics=false,asics=true,crystal=true,mppc=true){
-electronics_assembly_singleFEB_DETECTOR_POS=[0,0,0];
+electronics_assembly_singleFEB_DETECTOR_POS=[0,0,20];
 electronics_assembly_singleFEB_DETECTOR_PITCH=[30,30,0];
-electronics_assembly_singleFEB_FEB_POS=[0,0,-20];
+electronics_assembly_singleFEB_FEB_POS=[0,0,0];
 for ( i = [0 : 7] )
 {
 for ( j = [0 : 1] )
@@ -89,9 +89,9 @@ for ( j = [0 : 1] )
 {
     translate([i*BIGFRAME_001_FEB_ASIC_CONNECTOR_PITCH[0],j*BIGFRAME_001_FEB_ASIC_CONNECTOR_PITCH[1], -0.5*delta]+BIGFRAME_001_FEB_ASIC_CONNECTOR_POS+feb*BIGFRAME_001_FEB_PITCH)
     minkowski(){ //this should mill an aperture using a tool of diameter BIGFRAME_001_TOOL_DIAM
-     cube([BIGFRAME_001_FEB_ASIC_CONNECTOR_DIM[0],BIGFRAME_001_FEB_ASIC_CONNECTOR_DIM[1],delta+BIGFRAME_001_HEIGHT]);
-     cylinder(r=BIGFRAME_001_TOOL_DIAM/2,h=delta+BIGFRAME_001_HEIGHT);
-     }
+     cube([BIGFRAME_001_FEB_ASIC_CONNECTOR_DIM[0],BIGFRAME_001_FEB_ASIC_CONNECTOR_DIM[1],1]);
+     cylinder(r=BIGFRAME_001_TOOL_DIAM/2,h=BIGFRAME_001_HEIGHT+delta);
+    }
 }
 }
 }
@@ -121,7 +121,7 @@ module S12643_050CN(){
 S12643_050CN_PCB_DIM=[14.3,14.3,1];
 S12643_050CN_PCB_POS=[0,0,0];
 S12643_050CN_PCB_ALPHA=1.;
-S12643_050CN_PCB_COLOR="Lime Green";
+S12643_050CN_PCB_COLOR="LimeGreen";
 S12643_050CN_MPPC_PITCH=[3.6,3.6,0];
 S12643_050CN_MPPC_DIM=[3,3,0.3];
 S12643_050CN_MPPC_POS=[0.25,0.25,S12643_050CN_PCB_DIM[2]];
@@ -215,7 +215,7 @@ for(i=[0:3])
 }
 
 if(wrapped){
-	echo("External crystal matrix extra wrapping");
+//	echo("External crystal matrix extra wrapping");
 	translate(EXT_CRYSTAL_MATRIX_WRAPPING_POS)
 	color(EXT_CRYSTAL_MATRIX_WRAPPING_COLOR,alpha=EXT_CRYSTAL_MATRIX_WRAPPING_ALPHA)
 	cube(size = EXT_CRYSTAL_MATRIX_WRAPPING_DIM,center=false);
@@ -295,7 +295,7 @@ module ASIC_MODULE_001(){
 ASIC_MODULE_001_PCB_DIM=[29.,29.,2];
 ASIC_MODULE_001_PCB_POS=[0,0,0];
 ASIC_MODULE_001_PCB_ALPHA=1.;
-ASIC_MODULE_001_PCB_COLOR="Lime Green";
+ASIC_MODULE_001_PCB_COLOR="LimeGreen";
 ASIC_MODULE_001_MPPC_CONNECTOR_DIM=[9.58,3.7,3.1];
 ASIC_MODULE_001_MPPC_CONNECTOR_CENT=[ASIC_MODULE_001_MPPC_CONNECTOR_DIM[0]/2.,ASIC_MODULE_001_MPPC_CONNECTOR_DIM[1]/2.,0];
 ASIC_MODULE_001_MPPC_CONNECTOR_POSS=[
@@ -358,7 +358,7 @@ ASIC_MODULE_002_PCB2_DZ=15;
 ASIC_MODULE_002_PCB1_DIM=[29.,29.,2];
 ASIC_MODULE_002_PCB1_POS=[0,0,ASIC_MODULE_002_PCB2_DZ];
 ASIC_MODULE_002_PCB1_ALPHA=1.;
-ASIC_MODULE_002_PCB1_COLOR="Lime Green";
+ASIC_MODULE_002_PCB1_COLOR="LimeGreen";
 ASIC_MODULE_002_PCB1_DENTX=0.2;
 ASIC_MODULE_002_PCB1_DENTY=0.05;
 ASIC_MODULE_002_PCB1_POINTS=[[0,0],
@@ -377,7 +377,7 @@ ASIC_MODULE_002_PCB1_POINTS=[[0,0],
 ASIC_MODULE_002_PCB2_DIM=ASIC_MODULE_002_PCB1_DIM;
 ASIC_MODULE_002_PCB2_POS=ASIC_MODULE_002_PCB1_POS-[0,0,ASIC_MODULE_002_PCB2_DZ];
 ASIC_MODULE_002_PCB2_ALPHA=1.;
-ASIC_MODULE_002_PCB2_COLOR="Lime Green";
+ASIC_MODULE_002_PCB2_COLOR="LimeGreen";
 ASIC_MODULE_002_PCB2_POINTS=ASIC_MODULE_002_PCB1_POINTS;
 
 ASIC_MODULE_002_FLEXPCB_POS=ASIC_MODULE_002_PCB2_POS+
@@ -534,7 +534,7 @@ module FEB(){
 FEB_PCB_DIM=[4*60.+25.,60.,2];
 FEB_PCB_POS=[0,0,0];
 FEB_PCB_ALPHA=1.;
-FEB_PCB_COLOR="Lime Green";
+FEB_PCB_COLOR="LimeGreen";
 
 FEB_ASIC_CONNECTOR_DIM=[5-2*delta,12-2*delta,13];
 FEB_ASIC_CONNECTOR_POS=[3.625+delta,(FEB_PCB_DIM[1]/2-FEB_ASIC_CONNECTOR_DIM[1])/2-0.5+0.5*delta,FEB_PCB_DIM[2]]+FEB_PCB_POS;
