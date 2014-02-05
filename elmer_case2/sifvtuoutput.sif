@@ -1,0 +1,10 @@
+Solver n
+  Exec Solver = after timestep
+  Equation = "result output"
+  Procedure = "ResultOutputSolve" "ResultOutputSolver"
+  Output File Name = "case"
+  Output Format = String "vtu"
+  Binary Output = True
+  Single Precision = True
+  Output Directory = results
+End

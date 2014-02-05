@@ -1,4 +1,4 @@
-DRAWINGS=Dimension0.png Dimension1.png Rendering0.png Rendering1.png Rendering2.png Rendering3.png Rendering4.png Rendering5.png CoolingPlate.png # Rendering6.png Rendering7.png Rendering8.png Rendering9.png
+DRAWINGS=Dimension0.png Dimension1.png Rendering0.png Rendering1.png Rendering2.png Rendering3.png Rendering4.png Rendering5.png CoolingPlate.png Rendering6.png Rendering7.png # Rendering8.png Rendering9.png
 CSGMODELS= FEBA.csg FEBD.csg CoolingPlate.csg
 
 

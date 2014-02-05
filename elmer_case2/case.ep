@@ -1,0 +1,63 @@
+        12        34      1      1 scalar: Temperature
+#File started at: 2014/01/29 19:17:13
+  0.00000000E+000  0.00000000E+000  1.00000000E+001
+  0.00000000E+000  0.00000000E+000  2.00000000E+001
+  0.00000000E+000  1.00000000E+001  1.00000000E+001
+  0.00000000E+000  1.00000000E+001  2.00000000E+001
+  1.00000000E+001  0.00000000E+000  2.00000000E+001
+  1.00000000E+001  0.00000000E+000  1.00000000E+001
+  1.00000000E+001  1.00000000E+001  1.00000000E+001
+  1.00000000E+001  1.00000000E+001  2.00000000E+001
+  0.00000000E+000  1.00000000E+001  0.00000000E+000
+  0.00000000E+000  0.00000000E+000  0.00000000E+000
+  1.00000000E+001  1.00000000E+001  0.00000000E+000
+  1.00000000E+001  0.00000000E+000  0.00000000E+000
+#group all
+body.1  504       6       7       4       3
+body.1  504       5       3       0       6
+body.1  504       3       2       0       6
+body.1  504       5       3       6       4
+body.1  504       5       3       4       1
+body.1  504       5       3       1       0
+body.property.2  504       9       5      10      11
+body.property.2  504       8      10       9       6
+body.property.2  504       2       9       0       6
+body.property.2  504       5       6       0       9
+body.property.2  504       8       9       2       6
+body.property.2  504       9      10       5       6
+boundarycondition.2  303       0       1       3
+boundarycondition.2  303       2       0       3
+boundarycondition.1  303       1       0       5
+boundarycondition.1  303       4       1       5
+Constraint0   303       0       2       6
+Constraint0   303       5       0       6
+boundarycondition.1  303       6       2       3
+boundarycondition.1  303       3       7       6
+boundarycondition.3  303       3       1       4
+boundarycondition.3  303       4       7       3
+boundarycondition.2  303       4       5       6
+boundarycondition.2  303       6       7       4
+Constraint0   303       2       8       9
+Constraint0   303       0       2       9
+Constraint0   303       8       2       6
+Constraint0   303       6      10       8
+Constraint0   303       9      11       5
+Constraint0   303       0       9       5
+boundarycondition.4  303       9       8      10
+boundarycondition.4  303      11       9      10
+Constraint0   303       5      11      10
+Constraint0   303      10       6       5
+#endgroup all
+#time       1      1  1.00000000E+000
+  3.07429467E+002
+  3.20000000E+002
+  3.07429467E+002
+  3.20000000E+002
+  3.20000000E+002
+  3.07429467E+002
+  3.07429467E+002
+  3.20000000E+002
+  3.00000000E+002
+  3.00000000E+002
+  3.00000000E+002
+  3.00000000E+002

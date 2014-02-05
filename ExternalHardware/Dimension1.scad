@@ -75,11 +75,8 @@ module dim_FEB_MODULE(){
     translate(FEB_2014_ASIC_CONNECTOR_POS+7*[0,ASIC_PITCH[1],0]+[0,FEB_2014_ASIC_CONNECTOR_DIM[1],0]+[0, 0, 100])
     quote_up(length=FEB_2014_ASIC_CONNECTOR_DIM[0],distance=45,quote_type=DIM_OVER);
     color("Black")
-    translate(FEB_2014_ASIC_CONNECTOR_POS+7*[0,ASIC_PITCH[1],0]+[FEB_2014_ASIC_CONNECTOR_DIM[0],FEB_2014_ASIC_CONNECTOR_DIM[1],0]+[0, 0, 100])
-    quote_up(length=7*MPPC_PITCH[0],distance=45,quote_type=DIM_OVER);
-    color("Black")
-    translate(FEB_2014_ASIC_CONNECTOR_POS+7*[0,ASIC_PITCH[1],0]+[FEB_2014_ASIC_CONNECTOR_DIM[0],FEB_2014_ASIC_CONNECTOR_DIM[1],0]+[0, 0, 100])
-    quote_up(length=7*MPPC_PITCH[0],distance=45,quote_type=DIM_OVER);
+    translate(+[0, 0, 100])
+    quote_up(length=FEB_2014_ASIC_CONNECTOR_DIM[0],distance=45,quote_type=DIM_OVER);
     }
     //FRONT
     translate([200,8,0])

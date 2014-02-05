@@ -67,10 +67,10 @@ module dim_ASIC_MODULE(){
     quote_left(length=ASIC_MODULE_004_FEB_CONNECTOR_POS[1]-ASIC_MODULE_004_PCB_POS[1],distance=10,quote_type=DIM_RIGHT);
     color("Black")
     translate([ASIC_MODULE_004_PCB_POS[0],-1*ASIC_MODULE_004_PCB_POS[1],-1*ASIC_MODULE_004_PCB_POS[2]]+[0, 0, 100])
-    quote_up(length=ASIC_MODULE_004_FEB_CONNECTOR_POS[0]-ASIC_MODULE_004_PCB_POS[0],distance=10,quote_type=DIM_LEFT);
+    quote_up(length=ASIC_MODULE_004_FEB_CONNECTOR_DIM[0]/2.+ASIC_MODULE_004_FEB_CONNECTOR_POS[0]-ASIC_MODULE_004_PCB_POS[0],distance=10,quote_type=DIM_LEFT);
     color("Black")
     translate([ASIC_MODULE_004_FEB_CONNECTOR_POS[0],-1*ASIC_MODULE_004_FEB_CONNECTOR_POS[1],-1*ASIC_MODULE_004_FEB_CONNECTOR_POS[2]]+[0, 0, 100])
-    quote_up(length=ASIC_MODULE_004_FEB_CONNECTOR_DIM[0],distance=10+ASIC_MODULE_004_FEB_CONNECTOR_POS[1],quote_type=DIM_CENTER);
+    quote_down(length=ASIC_MODULE_004_FEB_CONNECTOR_DIM[0],distance=10+ASIC_MODULE_004_FEB_CONNECTOR_DIM[1],quote_type=DIM_CENTER);
     color("Black")
     translate([ASIC_MODULE_004_PCB_POS[0],-1*ASIC_MODULE_004_PCB_POS[1],-1*ASIC_MODULE_004_PCB_POS[2]]+[ASIC_MODULE_004_PCB_DIM[0],-1*ASIC_MODULE_004_PCB_DIM[1],0]+[0, 0, 100])
     quote_right(length=ASIC_MODULE_004_PCB_DIM[1],distance=10,quote_type=DIM_CENTER);
@@ -84,7 +84,7 @@ module dim_ASIC_MODULE(){
     translate([ASIC_MODULE_004_HOLES_POSS[0][0],-1.*ASIC_MODULE_004_HOLES_POSS[0][1],-1.*ASIC_MODULE_004_HOLES_POSS[0][2]]+[0, 0, 100])
     union(){
         circle_center(radius=ASIC_MODULE_004_HOLES_DIAM*0.5, size=DIM_HOLE_CENTER,line_width=DIM_LINE_WIDTH);
-	leader_line(angle=125., radius=ASIC_MODULE_004_HOLES_DIAM*0.5,angle_length=23, horz_line_length=4, direction=DIM_LEFT, line_width=DIM_LINE_WIDTH, text=str("r ",ASIC_MODULE_004_HOLES_DIAM*0.5),do_circle=false);
+	leader_line(angle=125., radius=ASIC_MODULE_004_HOLES_DIAM*0.5,angle_length=23, horz_line_length=4, direction=DIM_LEFT, line_width=DIM_LINE_WIDTH, text=str("Diam ",ASIC_MODULE_004_HOLES_DIAM),do_circle=false);
     }
     color("Black")
     translate([ASIC_MODULE_004_HOLES_POSS[0][0],-1.*ASIC_MODULE_004_HOLES_POSS[0][1],-1.*ASIC_MODULE_004_HOLES_POSS[0][2]]+[0, 0, 100])
@@ -571,7 +571,7 @@ module local_titleblock(length,height) {
         "0",             // Drawing No.
         "A. Silenzi",        // Created by
         " ",                // Reviewd by
-        "2014-1-6",        // Date
+        "2014-2-3",        // Date
     ];
 
     // the organization making the part
@@ -615,19 +615,7 @@ module local_titleblock(length,height) {
 
     ];
 //    translate([length-1*title_width,row_height*7,0])
-
     translate([length-DIM_LINE_WIDTH*title_width ,DIM_LINE_WIDTH*7*row_height,0])
     titleblock(lines, descs, details);
-
-//    revisions = [
-//        ["1a", "2013-4-1", "ds"],
-//        ["1b", "2013-4-2", "ds"],
-//        ["2a", "2013-4-3", "ds"],
-//        ["3a", "2013-4-5", "ds"],
-//        ["4a", "2013-4-15", "ds"],
-//    ];
-//
-//    rotate([0, 0, 90])
-//   sample_revisionblock(revisions);
 
 }

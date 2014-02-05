@@ -1,0 +1,138 @@
+README for script Elmer_ep.py
+
+Scripts:
+         Elmer_ep.py
+         Elmer_iteration_read.py
+
+
+version 0.16 08.11.2011
+
+Hi all!
+Some time ago, I wrote a python script, which helped me a lot. I think  that it could be useful for some of you. It works like a saving line procedure, but you don't have to 
+recalculate your problem if you want to have other results.
+
+Options that program understands (to see this just start the program)
+x= <cordinate_x>
+y= <cordinate_y>
+z= <cordinate_z>
+rnd = tolerance in searching coordinates
+how_many_times - check and leave
+time =to  choose times in file, from which you want results, place your times between braces e.g.: [n,m,z]
+notime = when you want to create a graph of value vs. geometry (for one point in time)
+time_graph - to show result for one point vs time, need only one point
+results -  to check and show what results are in the file
+result=<which> -  to show chosen result from file, give number  (for example result=0)
+file - where I should write results
+wcord= When someone wants to get the distribution of results for the selected coordinate axes, this option should be use for it. Possible options wcord=x, wcord=y, wcord=z
+
+
+This script may be used for:
+1. reading one point in chosen times, for example:
+
+Elmer_ep.py room5t11f.ep x=0.19 y=0.51 rnd=2 time=[10,20,110] file=a result=0
+
+2. reading one point for all times, for example:
+
+ Elmer_ep.py room5t11f.ep x=0.19 y=0.51 rnd=2 time_graph file=a result=0
+
+3. reading all points which have given coordinate (in below example x=0.19) for one time
+
+ Elmer_ep.py room5t11f.ep x=0.19 rnd=2 notime time=[100] file=a result=0
+ 
+ 
+ 
+ Example of using:
+ 
+ 
+We want to save velocity x and in result.ep we could write in xterm or windows dos:
+
+Elmer_ep.py result.ep results
+
+*------------------------------------------------------*
+Result  0  ->  Partition
+Result  1  ->  Temperature
+Result  2   x  ->  Velocity
+Result  3   y  ->  Velocity
+Result  4   z  ->  Velocity
+Result  5  ->  Pressure
+*------------------------------------------------------*
+
+
+
+We want Temperature for one point which is somewhere in x=0.2 y=0.5 
+
+To choose exactly one point we write in xterm or windows dos:
+
+Elmer_ep.py result.ep x=0.2 y=0.5 rnd=1 
+
+(options rnd=1 means that we are searching every points, with x coordinate that could be round to 0.2 (for example 0.19, 0.23)
+
+we get:
+
+*------------------------------------------------------*
+['/home/daniel/bin/Elmer_ep.py', 'room6t1_2.ep', 'x=0.2', 'y=0.5', 'rnd=1']
+	I am searching coordinates with x =  0.2 
+
+	I am searching coordinates with y =  0.5 
+
+Setup tolerance for search coordinates 1
+		 Result file header 
+
+5335 10574 6 150 scalar: Partition  scalar: Temperature vector: Velocity scalar: Pressure
+
+		 There are  5335  coordinates 
+['0', '0', '0\n']
+[0, 1]   [0.20000000000000001, 0.5]
+press THE key
+coordinates table which was find
+[0, 1]
+[0.24729247734000001, 0.49536525556099997, 0.0] 	 is in position :  948
+[0.192384085196, 0.51235128774299998, 0.0] 	 is in position :  1137
+[0.171681107902, 0.47596647291299998, 0.0] 	 is in position :  1168
+[0.22844919370399999, 0.46485797747399998, 0.0] 	 is in position :  1181
+[0.23916515465800001, 0.53507314989200006, 0.0] 	 is in position :  1194
+[0.21923170134299999, 0.50338055414899996, 0.0] 	 is in position :  1465
+[0.157718232244, 0.51972863480700005, 0.0] 	 is in position :  1469
+[0.210528150779, 0.54474447000000004, 0.0] 	 is in position :  1472
+[0.20160789435599999, 0.47031891569500001, 0.0] 	 is in position :  1476
+I am searching for point =  [0.20000000000000001, 0.5]
+	 I am going to save  9  point
+press any key
+*------------------------------------------------------*
+
+So we are interested with point x=0.1577 y=0.5197 and temperature for all times
+
+Elmer_ep.py result.ep x=0.16 y=0.52 rnd=2 result=1 time_graph file=out
+
+But one could also want result for only time=10,20,30
+
+So we execute:
+
+Elmer_ep.py result.ep x=0.16 y=0.52 rnd=2 result=1 time=[10,20,30] file=out
+
+
+Feel free to ask questions:
+
+kucharski22daniel@gmail.com
+
+
++added 28.02.2010
+
+In this version I have added next script, which counts iterations for all timesteps in file taken as a output from
+ElmerSolver.
+To have this log file you have to run ElmerSolver with command:
+         ElmerSolver > log_file
+         
+         and then:
+         
+         Elmer_iteration_reader.py in=log_file out=file_with_iterations
+         
+         
+         
+
+
+
+
+
+
+
